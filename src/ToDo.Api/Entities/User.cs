@@ -1,5 +1,8 @@
-using Microsoft.AspNetCore.Identity;
-
 namespace ToDo.Api.Entities;
 
-public class User : IdentityUser<Guid> { }
+public class User
+{
+    public Guid Id { get; set; }
+    public string? Username { get; set; }
+    public string? PasswordHash { get; set; }
+}
