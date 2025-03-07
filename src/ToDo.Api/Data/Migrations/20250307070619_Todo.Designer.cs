@@ -12,8 +12,8 @@ using ToDo.Api.Data;
 namespace ToDo.Api.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20250307060740_TodoMigration")]
-    partial class TodoMigration
+    [Migration("20250307070619_Todo")]
+    partial class Todo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,11 @@ namespace ToDo.Api.Migrations
 
             modelBuilder.Entity("ToDo.Api.Entities.Todo", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .HasMaxLength(1000)

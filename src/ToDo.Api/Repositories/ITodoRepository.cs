@@ -6,7 +6,7 @@ namespace ToDo.Api.Repositories
     {
         Task<Todo> CreateTodoAsync(Todo todo);
         Task<IEnumerable<Todo>> GetAllTodosAsync(Guid userId);
-        Task<Todo?> GetTodoByIdAsync(Guid userId, Guid todoId);
+        Task<Todo?> GetTodoByIdAsync(Guid userId, int todoId);
         Task UpdateTodoAsync(Todo todo);
         Task DeleteTodoAsync(Todo todo);
     }

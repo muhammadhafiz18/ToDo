@@ -20,7 +20,7 @@ namespace ToDo.Api.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Todo?> GetTodoByIdAsync(Guid userId, Guid todoId)
+        public async Task<Todo?> GetTodoByIdAsync(Guid userId, int todoId)
         {
             return await context.Todos
                 .FirstOrDefaultAsync(t => t.UserId == userId && t.Id == todoId);
