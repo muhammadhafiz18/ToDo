@@ -7,9 +7,9 @@ namespace ToDo.Api.Controllers;
 
 [ApiController]
 [Route("api/auth")]
-public class AuthController(AuthService authService, 
-IValidator<RegisterRequest> registerValidator, 
-IValidator<LoginRequest> loginValidator) : ControllerBase
+public class AuthController(IAuthService authService, 
+    IValidator<RegisterRequest> registerValidator, 
+    IValidator<LoginRequest> loginValidator) : ControllerBase
 {
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterRequest request)
