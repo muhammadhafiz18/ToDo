@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ToDo.Api.Data;
 using ToDo.Api.Entities;
 
-namespace ToDo.Api.Repository;
+namespace ToDo.Api.Repositories;
 
 public class UserRepository(ToDoDbContext context) : IUserRepository
 {

@@ -1,7 +1,6 @@
-// Domain/Repositories/IUserRepository.cs
 using ToDo.Api.Entities;
 
-namespace ToDo.Api.Repository;
+namespace ToDo.Api.Repositories;
 public interface IUserRepository
 {
     Task<User?> GetByUsernameAsync(string username, CancellationToken cancellationToken = default);

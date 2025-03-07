@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ToDo.Api.Data;
-using ToDo.Api.Repository;
 using ToDo.Api.Services;
 using Microsoft.OpenApi.Models;
 using ToDo.Api.Validators;
 using FluentValidation;
 using ToDo.Api.Dtos;
+using ToDo.Api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,9 +36,11 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IValidator<RegisterRequest>, RegisterRequestValidator>();
 builder.Services.AddScoped<IValidator<LoginRequest>, LoginRequestValidator>();
+builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+builder.Services.AddScoped<ITodoService, TodoService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

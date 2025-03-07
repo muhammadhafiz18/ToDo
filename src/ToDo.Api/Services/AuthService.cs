@@ -3,10 +3,11 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using ToDo.Api.Entities;
-using ToDo.Api.Repository;
+using ToDo.Api.Repositories;
+
 namespace ToDo.Api.Services;
 
-public class AuthService(IUserRepository userRepository, IConfiguration config)
+public class AuthService(IUserRepository userRepository, IConfiguration config) : IAuthService  
 {
     public async Task<User> RegisterAsync(string username, string password)
     {
